@@ -7,6 +7,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -18,8 +19,8 @@ public class Person {
 
     private final StringProperty firstName;
     private final StringProperty lastName;
-    private final StringProperty street;
-    private final IntegerProperty postalCode;
+    private final FloatProperty weight;
+    private final StringProperty category;
     private final StringProperty city;
     private final ObjectProperty<LocalDate> birthday;
 
@@ -41,8 +42,8 @@ public class Person {
         this.lastName = new SimpleStringProperty(lastName);
 
         // Какие-то фиктивные начальные данные для удобства тестирования.
-        this.street = new SimpleStringProperty("какая-то улица");
-        this.postalCode = new SimpleIntegerProperty(1234);
+        this.weight = new SimpleFloatProperty("какой-то вес");
+        this.category = new SimpleStringProperty("какой-то разряд");
         this.city = new SimpleStringProperty("какой-то город");
         this.birthday = new SimpleObjectProperty<LocalDate>(LocalDate.of(1999, 2, 21));
     }
@@ -71,28 +72,28 @@ public class Person {
         return lastName;
     }
 
-    public String getStreet() {
-        return street.get();
+    public Float weight() {
+        return weight.get();
     }
 
-    public void setStreet(String street) {
-        this.street.set(street);
+    public void setweight(Float weight) {
+        this.weight.set(weight);
     }
 
-    public StringProperty streetProperty() {
+    public FloatProperty weightProperty() {
         return street;
     }
 
-    public int getPostalCode() {
-        return postalCode.get();
+    public String getcategory() {
+        return category.get();
     }
 
-    public void setPostalCode(int postalCode) {
-        this.postalCode.set(postalCode);
+    public void setcategory(String category) {
+        this.category.set(category);
     }
 
-    public IntegerProperty postalCodeProperty() {
-        return postalCode;
+    public StringProperty categoryProperty() {
+        return category;
     }
 
     public String getCity() {
